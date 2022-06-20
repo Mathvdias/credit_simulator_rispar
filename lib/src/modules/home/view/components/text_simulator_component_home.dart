@@ -10,7 +10,7 @@ class TextSimulatorHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kPadding, vertical: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
