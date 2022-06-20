@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SetMoneyController {
+  final TextEditingController inputMoney = TextEditingController();
+
   var indicator$ = ValueNotifier(34);
   var indexPage$ = ValueNotifier(0);
   var hasVisible$ = ValueNotifier(false);

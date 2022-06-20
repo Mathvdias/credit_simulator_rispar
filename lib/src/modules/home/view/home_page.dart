@@ -6,6 +6,7 @@ import '../../../app/input_text_form_field_pattern.dart';
 import '../../../app/text_info_pattern.dart';
 import '../../../components/app_rispar.dart';
 import '../../set_money/view/set_money_view.dart';
+import '../controller/home_controller.dart';
 import 'components/text_simulator_component_home.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,8 +17,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = HomeController();
   @override
   void initState() {
+    controller.email;
+    controller.name;
     super.initState();
   }
 
@@ -94,10 +98,14 @@ class _HomePageState extends State<HomePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
         TextInfoPattern(title: 'Qual seu ', titleExtension: 'nome completo?'),
-        InputTextFormField(inputText: 'Nome completo'),
+        InputTextFormField(
+          inputText: 'Nome completo',
+        ),
         SizedBox(height: 20),
         TextInfoPattern(title: 'E seu ', titleExtension: 'e-mail?'),
-        InputTextFormField(inputText: 'seuemail@email.com')
+        InputTextFormField(
+          inputText: 'seuemail@email.com',
+        )
       ],
     );
   }

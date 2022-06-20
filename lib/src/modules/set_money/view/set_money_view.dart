@@ -27,8 +27,14 @@ class _SetMoneyViewState extends State<SetMoneyView> {
                 child: IndexedStack(
                   index: controller.indexPage,
                   children: [
-                    SetMoneyQuantity(onNext: onNextImplement),
-                    SetDataPayment(onNext: onNextImplement),
+                    SetMoneyQuantity(
+                      onNext: onNextImplement,
+                      text: controller.inputMoney,
+                    ),
+                    SetDataPayment(
+                      onNext: onNextImplement,
+                      text: controller.inputMoney,
+                    ),
                     ResultDataSolicitation(onNext: onBackImplement)
                   ],
                 ),

@@ -16,7 +16,8 @@ class _ResultDataSolicitationState extends State<ResultDataSolicitation> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-          onPressed: () => widget.onNext(), child: const Text("Continuar3")),
+          onPressed: () => widget.onNext(),
+          child: const Text('Nova simulação')),
     );
   }
 }

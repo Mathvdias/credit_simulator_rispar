@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-import '../../../../app/input_text_form_field_pattern.dart';
+import '../../../../app/input_number_set_pattern.dart';
 import '../../../../app/text_info_pattern.dart';
 import '../../../../components/app_rispar.dart';
 
 class SetMoneyQuantity extends StatefulWidget {
   final Function onNext;
+  final TextEditingController text;
   const SetMoneyQuantity({
     Key? key,
     required this.onNext,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -33,7 +36,8 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
         const Spacer(
           flex: 1,
         ),
-        const InputTextFormField(
+        InputNumberFormField(
+          controller: widget.text,
           inputText: '',
         ),
         const Spacer(
@@ -46,7 +50,10 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
               width: double.maxFinite,
               height: 45,
               child: ElevatedButton(
-                  onPressed: () => widget.onNext(),
+                  onPressed: () {
+                    widget.onNext();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
                   child: const Text(
                     "Continuar",
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -74,5 +81,10 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
             )
           ]),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }

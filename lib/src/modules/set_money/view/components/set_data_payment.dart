@@ -6,10 +6,12 @@ import 'slider_component.dart';
 import 'slider_component_percent.dart';
 
 class SetDataPayment extends StatefulWidget {
+  final TextEditingController text;
   final Function onNext;
   const SetDataPayment({
     Key? key,
     required this.onNext,
+    required this.text,
   }) : super(key: key);
 
   @override
@@ -23,7 +25,7 @@ class _SetDataPaymentState extends State<SetDataPayment> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TextInfoPattern(fontSize: 25, titleExtension: 'Valor escolhido'),
-        _textColorGreen('R\$25.000'),
+        _textColorGreen(widget.text.text),
         const Spacer(
           flex: 1,
         ),
