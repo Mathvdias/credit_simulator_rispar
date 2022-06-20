@@ -38,7 +38,7 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
               inputText: '',
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height / 3.5,
+              height: MediaQuery.of(context).size.height / 3,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: kPadding),

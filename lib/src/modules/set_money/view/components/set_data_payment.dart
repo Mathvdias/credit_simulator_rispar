@@ -17,6 +17,7 @@ class SetDataPayment extends StatefulWidget {
 }
 
 class _SetDataPaymentState extends State<SetDataPayment> {
+  final double _height = 50;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,6 +25,9 @@ class _SetDataPaymentState extends State<SetDataPayment> {
       children: [
         const TextInfoPattern(fontSize: 25, titleExtension: 'Valor escolhido'),
         _textColorGreen('R\$25.000'),
+        SizedBox(
+          height: _height,
+        ),
         const TextInfoPattern(
             fontSize: 18,
             title: 'Escolha a ',
@@ -42,11 +46,24 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           max: 50,
           min: 20,
         ),
-        
+        SizedBox(
+          height: _height,
+        ),
         _textColorGreen('Garantia protegida'),
+        _textInformationCrash(),
+        SizedBox(height: _height + 95),
         _buttonNextWithoutWarranty(),
         _buttonNextPage(),
       ],
+    );
+  }
+
+  Padding _textInformationCrash() {
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: kPadding),
+      child: Text(
+          "Bitcoin caiu? Fique tranquilo! Na garantia \nprotegida, você não recebe chamada de\nmargem e não é liquidado.",
+          style: TextStyle(color: Colors.black, fontSize: 15)),
     );
   }
 
@@ -87,7 +104,7 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           text: text,
           style: const TextStyle(
               color: Color(0xff559597),
-              fontSize: 25,
+              fontSize: 30,
               fontWeight: FontWeight.bold),
         ),
       ),
