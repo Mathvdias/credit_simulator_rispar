@@ -36,6 +36,29 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           max: 12,
           min: 3,
         ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kPadding),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('3 ',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Text('6',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Text(' 8',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Text('12',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold))
+            ],
+          ),
+        ),
+        const Spacer(
+          flex: 1,
+        ),
         const TextInfoPattern(
             fontSize: 18,
             title: 'Escolha o ',
@@ -44,6 +67,23 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           divisions: 2,
           max: 50,
           min: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kPadding),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Text('20%',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Text('35%',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold)),
+              Text('50%',
+                  style: TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold))
+            ],
+          ),
         ),
         const Spacer(
           flex: 1,
