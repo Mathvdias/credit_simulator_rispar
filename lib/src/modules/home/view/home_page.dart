@@ -23,15 +23,24 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final keyBoardIsHide = MediaQuery.of(context).viewInsets.bottom == 0;
     return Scaffold(
       body: Column(
         children: <Widget>[
-          _logoMainCryptoSimulator(context),
+          Visibility(
+              visible: keyBoardIsHide,
+              child: _logoMainCryptoSimulator(context)),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Visibility(
+                  visible: !keyBoardIsHide,
+                  child: const SizedBox(
+                    height: 100,
+                  ),
+                ),
                 const TextSimulatorHome(),
                 _inputComponentUser(),
                 Padding(

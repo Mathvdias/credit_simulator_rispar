@@ -18,17 +18,23 @@ class _SetMoneyViewState extends State<SetMoneyView> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: _appBarHome(context),
-        body: Column(
-          children: [
-            IndexedStack(
-              index: controller.indexPage,
-              children: [
-                SetMoneyQuantity(onNext: onNextImplement),
-                SetDataPayment(onNext: onNextImplement),
-                ResultDataSolicitation(onNext: onBackImplement)
-              ],
-            ),
-          ],
+        body: SizedBox(
+          height: double.infinity,
+          width: double.infinity,
+          child: Column(
+            children: [
+              Expanded(
+                child: IndexedStack(
+                  index: controller.indexPage,
+                  children: [
+                    SetMoneyQuantity(onNext: onNextImplement),
+                    SetDataPayment(onNext: onNextImplement),
+                    ResultDataSolicitation(onNext: onBackImplement)
+                  ],
+                ),
+              ),
+            ],
+          ),
         ));
   }
 
