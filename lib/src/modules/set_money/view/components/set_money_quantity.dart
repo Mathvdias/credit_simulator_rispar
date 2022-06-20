@@ -18,42 +18,40 @@ class SetMoneyQuantity extends StatefulWidget {
 class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              children: [
-                _infoSetMoneyValue(),
-                const TextInfoPattern(
-                    title: 'Insira um valor entre ',
-                    titleExtension: 'R\$500 a R\$300.000'),
-              ],
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3.5,
-            ),
-            const InputTextFormField(
-              inputText: '',
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: kPadding),
-              child: SizedBox(
-                  width: double.maxFinite,
-                  height: 45,
-                  child: ElevatedButton(
-                      onPressed: () => widget.onNext(),
-                      child: const Text(
-                        "Continuar",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ))),
-            )
+            _infoSetMoneyValue(),
+            const TextInfoPattern(
+                title: 'Insira um valor entre ',
+                titleExtension: 'R\$500 a R\$300.000'),
           ],
         ),
+        const Spacer(
+          flex: 1,
+        ),
+        const InputTextFormField(
+          inputText: '',
+        ),
+        const Spacer(
+          flex: 2,
+        ),
+        Padding(
+          padding:
+              const EdgeInsets.symmetric(horizontal: kPadding, vertical: 50),
+          child: SizedBox(
+              width: double.maxFinite,
+              height: 45,
+              child: ElevatedButton(
+                  onPressed: () => widget.onNext(),
+                  child: const Text(
+                    "Continuar",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ))),
+        )
       ],
     );
   }

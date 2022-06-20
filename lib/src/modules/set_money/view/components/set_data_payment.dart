@@ -17,7 +17,6 @@ class SetDataPayment extends StatefulWidget {
 }
 
 class _SetDataPaymentState extends State<SetDataPayment> {
-  final double _height = 50;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,8 +24,8 @@ class _SetDataPaymentState extends State<SetDataPayment> {
       children: [
         const TextInfoPattern(fontSize: 25, titleExtension: 'Valor escolhido'),
         _textColorGreen('R\$25.000'),
-        SizedBox(
-          height: _height,
+        const Spacer(
+          flex: 1,
         ),
         const TextInfoPattern(
             fontSize: 18,
@@ -46,14 +45,19 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           max: 50,
           min: 20,
         ),
-        SizedBox(
-          height: _height,
+        const Spacer(
+          flex: 1,
         ),
         _textColorGreen('Garantia protegida'),
         _textInformationCrash(),
-        SizedBox(height: _height + 95),
+        const Spacer(
+          flex: 4,
+        ),
         _buttonNextWithoutWarranty(),
         _buttonNextPage(),
+        const Spacer(
+          flex: 2,
+        ),
       ],
     );
   }
