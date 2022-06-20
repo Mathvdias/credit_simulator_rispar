@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../controller/set_money_controller.dart';
+import 'components/result_data_solicitation.dart';
 import 'components/set_data_payment.dart';
 import 'components/set_money_quantity.dart';
 
@@ -12,7 +13,6 @@ class SetMoneyView extends StatefulWidget {
 }
 
 class _SetMoneyViewState extends State<SetMoneyView> {
-  int indexPage = 0;
   final controller = SetMoneyController();
   @override
   Widget build(BuildContext context) {
@@ -21,10 +21,11 @@ class _SetMoneyViewState extends State<SetMoneyView> {
         body: Column(
           children: [
             IndexedStack(
-              index: indexPage,
+              index: controller.indexPage,
               children: [
-                SetMoneyQuantity(onNext: onNexImplement),
-                SetDataPayment(onNext: onBackImplement)
+                SetMoneyQuantity(onNext: onNextImplement),
+                SetDataPayment(onNext: onNextImplement),
+                ResultDataSolicitation(onNext: onBackImplement)
               ],
             ),
           ],
@@ -35,36 +36,39 @@ class _SetMoneyViewState extends State<SetMoneyView> {
     return AppBar(
       centerTitle: true,
       toolbarHeight: 80,
-      actions: const [
-        CloseButton(
-          color: Color(0xff559597),
+      actions: [
+        Visibility(
+          visible: controller.hasVisible,
+          child: const CloseButton(
+            color: Color(0xff559597),
+          ),
         )
       ],
       title: SizedBox(
         width: MediaQuery.of(context).size.width / 2,
         child: LinearProgressIndicator(
-          value: controller.indicator$.value / 100,
+          value: controller.indicator / 100,
         ),
       ),
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       leading: IconButton(
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => onBackImplement(),
         icon: const Icon(Icons.arrow_back),
         color: const Color(0xff559597),
       ),
     );
   }
 
-  onNexImplement() {
+  onNextImplement() {
     setState(() {
-      indexPage++;
+      controller.incrementIndexPage();
     });
   }
 
   onBackImplement() {
     setState(() {
-      indexPage--;
+      controller.decrementIndexPage(context);
     });
   }
 }
