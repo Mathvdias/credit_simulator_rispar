@@ -5,6 +5,7 @@ import '../../../app/images.dart';
 import '../../../app/input_text_form_field_pattern.dart';
 import '../../../app/text_info_pattern.dart';
 import '../../../components/app_rispar.dart';
+import '../../set_money/view/set_money_view.dart';
 import 'components/text_simulator_component_home.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,6 +16,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +41,13 @@ class _HomePageState extends State<HomePage> {
                       width: double.maxFinite,
                       height: 45,
                       child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SetMoneyView()),
+                            );
+                          },
                           child: const Text(
                             "Continuar",
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -72,24 +84,17 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
-        TextInfoPattern(
-          title: 'Qual seu ',
-          titleExtension: 'nome completo?',
-        ),
-        InputTextFormField(
-          inputText: 'Nome completo',
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        TextInfoPattern(
-          title: 'E seu ',
-          titleExtension: 'e-mail?',
-        ),
-        InputTextFormField(
-          inputText: 'seuemail@email.com',
-        )
+        TextInfoPattern(title: 'Qual seu ', titleExtension: 'nome completo?'),
+        InputTextFormField(inputText: 'Nome completo'),
+        SizedBox(height: 20),
+        TextInfoPattern(title: 'E seu ', titleExtension: 'e-mail?'),
+        InputTextFormField(inputText: 'seuemail@email.com')
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
