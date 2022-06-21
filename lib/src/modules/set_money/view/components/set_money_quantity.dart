@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../app/input_number_set_pattern.dart';
-import '../../../../app/text_info_pattern.dart';
+import '../../../../components/input_number_set_pattern.dart';
+import '../../../../components/text_info_pattern.dart';
 import '../../../../components/app_rispar.dart';
 import '../../controller/set_money_controller.dart';
 
@@ -91,6 +91,8 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
 
   @override
   void dispose() {
+    final controller = context.watch<SetMoneyController>();
+    controller.inputMoney.dispose();
     super.dispose();
   }
 }

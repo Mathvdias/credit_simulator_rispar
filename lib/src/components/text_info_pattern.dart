@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_rispar.dart';
+import 'app_rispar.dart';
 
 class TextInfoPattern extends StatelessWidget {
   final String? title;

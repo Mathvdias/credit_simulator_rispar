@@ -51,10 +51,9 @@ class SetMoneyController extends ChangeNotifier {
       result = await _iDataUserRepository.sendData(data);
       state.value = ResultState.success;
     } on ExceptionResponse catch (e) {
+      debugPrint(e.message);
       state.value = ResultState.error;
-      print(e);
     }
-    ;
     notifyListeners();
   }
 

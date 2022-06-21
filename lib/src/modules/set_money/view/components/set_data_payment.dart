@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../app/text_info_pattern.dart';
+import '../../../../components/text_info_pattern.dart';
 import '../../../../components/app_rispar.dart';
 import '../../controller/set_money_controller.dart';
 import 'slider_component.dart';
