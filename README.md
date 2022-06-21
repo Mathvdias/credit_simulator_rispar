@@ -4,6 +4,21 @@ A Rispar é a primeira plataforma de crédito com garantia em bitcoins do Brasil
 Através da plataforma, o usuário tem acesso a linhas de crédito vantajosas, com juros
 baixos e crédito rápido, possibilitados pelo Bitcoin como ativo em garantia.
 
+URL: https://api.rispar.com.br/acquisition/simulation<br>
+Method: POST
+
+Body:
+```
+{
+"fullname": "string", // Nome Completo
+"email": "string", // E-mail
+"ltv": "integer [20, 35, 50]", // Percentual da Garantia
+"amount": "decimal", // Valor escolhido
+"term": "integer [3, 6, 9, 12]", // Prazo
+"has_protected_collateral": "boolean" // Garantia Protegida
+}
+```
+<br>
 <h2 align="center">Como Usar 🤔</h2>
 
    ```
