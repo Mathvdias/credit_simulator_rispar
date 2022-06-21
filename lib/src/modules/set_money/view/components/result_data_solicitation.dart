@@ -20,4 +20,9 @@ class _ResultDataSolicitationState extends State<ResultDataSolicitation> {
           child: const Text('Nova simulação')),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

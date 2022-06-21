@@ -138,7 +138,10 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           width: double.maxFinite,
           height: 45,
           child: ElevatedButton(
-              onPressed: () => controller.sendData(true),
+              onPressed: () {
+                controller.sendData(true);
+                widget.onNext();
+              },
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontWeight: FontWeight.bold),

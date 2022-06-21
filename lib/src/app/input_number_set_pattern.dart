@@ -29,7 +29,7 @@ class InputNumberFormField extends StatelessWidget {
               .replaceAll(',', '.');
           var _value = double.parse(value$);
 
-          if (_value.toDouble() < 500.00 || _value.toDouble() > 300000.00) {
+          if (_value.toDouble() < 1000.00 || _value.toDouble() > 300000.00) {
             return 'Valor inválido';
           }
 
@@ -56,8 +56,6 @@ class InputNumberFormField extends StatelessWidget {
       ),
     );
   }
-
-  void validate() {}
 }
 
 class CurrencyInputFormatter extends TextInputFormatter {

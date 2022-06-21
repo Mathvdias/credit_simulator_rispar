@@ -31,7 +31,7 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
             _infoSetMoneyValue(),
             const TextInfoPattern(
                 title: 'Insira um valor entre ',
-                titleExtension: 'R\$500 a R\$300.000'),
+                titleExtension: 'R\$1000 a R\$300.000'),
           ],
         ),
         const Spacer(

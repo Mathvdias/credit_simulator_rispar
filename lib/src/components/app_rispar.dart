@@ -16,6 +16,7 @@ class AppRispar extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => HomeController()),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           primarySwatch: MaterialColor(0xff559597, colorGreen),
         ),

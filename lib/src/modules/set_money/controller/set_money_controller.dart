@@ -33,6 +33,11 @@ class SetMoneyController extends ChangeNotifier {
     print(hasProtected);
   }
 
+  void resetPage() {
+    indexPage$.value = 0;
+    indicator$.value = 34;
+  }
+
   void incrementIndexPage() {
     indexPage$.value++;
     _incrementIndicator();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../controller/set_money_controller.dart';
 import 'components/result_data_solicitation.dart';
@@ -36,7 +35,7 @@ class _SetMoneyViewState extends State<SetMoneyView> {
                       onNext: onNextImplement,
                       text: controller.inputMoney,
                     ),
-                    ResultDataSolicitation(onNext: onBackImplement)
+                    ResultDataSolicitation(onNext: onReset)
                   ],
                 ),
               ),
@@ -71,6 +70,12 @@ class _SetMoneyViewState extends State<SetMoneyView> {
         color: const Color(0xff559597),
       ),
     );
+  }
+
+  onReset() {
+    setState(() {
+      controller.resetPage();
+    });
   }
 
   onNextImplement() {
