@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../components/app_rispar.dart';
 
 class TextInfoPattern extends StatelessWidget {
-  final String title;
-  final String titleExtension;
+  final String? title;
+  final String? titleExtension;
+  final double? fontSize;
   const TextInfoPattern({
     Key? key,
-    required this.title,
-    required this.titleExtension,
+    this.title,
+    this.titleExtension,
+    this.fontSize,
   }) : super(key: key);
 
   @override
@@ -18,16 +20,16 @@ class TextInfoPattern extends StatelessWidget {
       child: RichText(
         text: TextSpan(
             text: title,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.black,
-              fontSize: 15,
+              fontSize: fontSize,
             ),
             children: <TextSpan>[
               TextSpan(
                 text: titleExtension,
-                style: const TextStyle(
+                style: TextStyle(
                     color: Colors.black,
-                    fontSize: 15,
+                    fontSize: fontSize,
                     fontWeight: FontWeight.bold),
               )
             ]),
