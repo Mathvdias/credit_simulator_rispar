@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 
 import '../../model/response/exception_responde.dart';
@@ -15,26 +12,6 @@ class DioClient implements IRestClient {
     dio = Dio(options);
     dio.options.contentType = Headers.formUrlEncodedContentType;
     dio.interceptors.add(LogInterceptor(responseBody: false));
-  }
-
-  void _validateException(DioError e) {
-    switch (e.type) {
-      case DioErrorType.connectTimeout:
-        throw ExceptionResponse(statusCode: 408, message: e.message);
-      case DioErrorType.receiveTimeout:
-        ExceptionResponse(statusCode: 408, message: e.message);
-        break;
-      case DioErrorType.sendTimeout:
-        ExceptionResponse(statusCode: 408, message: e.message);
-        break;
-      case DioErrorType.response:
-        ExceptionResponse(
-            statusCode: e.response?.statusCode ?? 500, message: e.message);
-        break;
-      default:
-        throw ExceptionResponse(
-            statusCode: 500, message: 'Não foi possivel realizar requisição');
-    }
   }
 
   @override

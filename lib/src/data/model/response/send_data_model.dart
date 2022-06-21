@@ -1,4 +1,4 @@
-class SendDataModel {
+class DataModel {
   String? id;
   String? fullname;
   String? email;
@@ -19,7 +19,7 @@ class SendDataModel {
   double? monthlyRate;
   double? annualRate;
 
-  SendDataModel(
+  DataModel(
       {this.id,
       this.fullname,
       this.email,
@@ -40,7 +40,7 @@ class SendDataModel {
       this.monthlyRate,
       this.annualRate});
 
-  SendDataModel.fromJson(Map<String, dynamic> json) {
+  DataModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     fullname = json['fullname'];
     email = json['email'];
