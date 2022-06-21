@@ -1,5 +1,6 @@
+import 'package:credit_simulator/src/data/provider/impl/dio_client.dart';
 import 'package:flutter/material.dart';
-
+import '../../../data/repository/impl/send_data_respository.dart';
 import '../controller/set_money_controller.dart';
 import 'components/result_data_solicitation.dart';
 import 'components/set_data_payment.dart';
@@ -13,7 +14,8 @@ class SetMoneyView extends StatefulWidget {
 }
 
 class _SetMoneyViewState extends State<SetMoneyView> {
-  final controller = SetMoneyController();
+  final controller =
+      SetMoneyController(DataUserRepository(DioClient.withAuthBasic()));
 
   @override
   Widget build(BuildContext context) {
