@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../home/controller/home_controller.dart';
 
 class SetMoneyController extends ChangeNotifier {
   final TextEditingController inputMoney = TextEditingController();
+  final controllerHome = HomeController();
   double? selectedTermValue;
   double? selectedltvValue;
 
@@ -13,9 +17,14 @@ class SetMoneyController extends ChangeNotifier {
   int get indexPage => indexPage$.value;
   bool get hasVisible => hasVisible$.value;
 
-  void sendData() {
-    print(selectedTermValue);
-    print(selectedltvValue);
+  void sendData() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? name = prefs.getString('name');
+    var email = prefs.getString('email');
+    print(name);
+    print(email);
+    print(selectedTermValue == null ? 3 : 3);
+    print(selectedltvValue == null ? 20.0 : 20.0);
     print(inputMoney.text);
   }
 

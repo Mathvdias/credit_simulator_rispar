@@ -55,13 +55,14 @@ class _HomePageState extends State<HomePage> {
                       width: double.maxFinite,
                       height: 45,
                       child: ElevatedButton(
-                          onPressed: () {
+                          onPressed: () async {
                             if (key.currentState!.validate()) {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const SetMoneyView()),
                               );
+                              controller.sendUserData();
                             }
                           },
                           child: const Text(
