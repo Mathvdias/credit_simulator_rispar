@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../controller/set_money_controller.dart';
 
 class SliderComponentPercent extends StatefulWidget {
   final double min;
@@ -19,6 +22,7 @@ class _SliderComponentPercentState extends State<SliderComponentPercent> {
   double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
+    final controller = context.watch<SetMoneyController>();
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackShape: const RoundedRectSliderTrackShape(),
@@ -40,6 +44,7 @@ class _SliderComponentPercentState extends State<SliderComponentPercent> {
         onChanged: (double values) {
           setState(() {
             _currentSliderValue = values;
+            controller.selectedltvValue = values;
           });
         },
       ),

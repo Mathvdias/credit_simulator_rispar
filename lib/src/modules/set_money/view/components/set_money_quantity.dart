@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../app/input_number_set_pattern.dart';
 import '../../../../app/text_info_pattern.dart';
 import '../../../../components/app_rispar.dart';
+import '../../controller/set_money_controller.dart';
 
 class SetMoneyQuantity extends StatefulWidget {
   final Function onNext;
-  final TextEditingController text;
   const SetMoneyQuantity({
     Key? key,
     required this.onNext,
-    required this.text,
   }) : super(key: key);
 
   @override
@@ -21,6 +21,7 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
   final GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final controller = context.watch<SetMoneyController>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -39,7 +40,7 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
         Form(
           key: _key,
           child: InputNumberFormField(
-            controller: widget.text,
+            controller: controller.inputMoney,
             inputText: '',
           ),
         ),

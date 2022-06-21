@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../app/text_info_pattern.dart';
 import '../../../../components/app_rispar.dart';
+import '../../controller/set_money_controller.dart';
 import 'slider_component.dart';
 import 'slider_component_percent.dart';
 
@@ -10,8 +12,8 @@ class SetDataPayment extends StatefulWidget {
   final Function onNext;
   const SetDataPayment({
     Key? key,
-    required this.onNext,
     required this.text,
+    required this.onNext,
   }) : super(key: key);
 
   @override
@@ -49,7 +51,7 @@ class _SetDataPaymentState extends State<SetDataPayment> {
               Text('6',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold)),
-              Text(' 8',
+              Text(' 9',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold)),
               Text('12',
@@ -128,13 +130,14 @@ class _SetDataPaymentState extends State<SetDataPayment> {
   }
 
   _buttonNextPage() {
+    final controller = context.watch<SetMoneyController>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kPadding),
       child: SizedBox(
           width: double.maxFinite,
           height: 45,
           child: ElevatedButton(
-              onPressed: () => widget.onNext(),
+              onPressed: () => controller.sendData(),
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontWeight: FontWeight.bold),

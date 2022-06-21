@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../controller/set_money_controller.dart';
 
 class SliderComponent extends StatefulWidget {
   final double min;
@@ -19,6 +22,7 @@ class _SliderComponentState extends State<SliderComponent> {
   double _currentSliderValue = 3;
   @override
   Widget build(BuildContext context) {
+    final controller = context.watch<SetMoneyController>();
     return SliderTheme(
       data: SliderTheme.of(context).copyWith(
         trackShape: const RoundedRectSliderTrackShape(),
@@ -37,9 +41,10 @@ class _SliderComponentState extends State<SliderComponent> {
         max: widget.max,
         divisions: widget.divisions,
         label: _currentSliderValue.round().toString(),
-        onChanged: (double values) {
+        onChanged: (values) {
           setState(() {
             _currentSliderValue = values;
+            controller.selectedTermValue = values;
           });
         },
       ),

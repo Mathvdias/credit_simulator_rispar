@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../controller/set_money_controller.dart';
 import 'components/result_data_solicitation.dart';
@@ -14,6 +15,7 @@ class SetMoneyView extends StatefulWidget {
 
 class _SetMoneyViewState extends State<SetMoneyView> {
   final controller = SetMoneyController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +31,6 @@ class _SetMoneyViewState extends State<SetMoneyView> {
                   children: [
                     SetMoneyQuantity(
                       onNext: onNextImplement,
-                      text: controller.inputMoney,
                     ),
                     SetDataPayment(
                       onNext: onNextImplement,

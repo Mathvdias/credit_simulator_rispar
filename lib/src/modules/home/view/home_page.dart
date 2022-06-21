@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<FormState> key = GlobalKey<FormState>();
   final controller = HomeController();
   @override
   void initState() {
@@ -41,8 +42,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Visibility(
                   visible: !keyBoardIsHide,
-                  child: const SizedBox(
-                    height: 100,
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height * .05,
                   ),
                 ),
                 const TextSimulatorHome(),
@@ -55,11 +56,13 @@ class _HomePageState extends State<HomePage> {
                       height: 45,
                       child: ElevatedButton(
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SetMoneyView()),
-                            );
+                            if (key.currentState!.validate()) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SetMoneyView()),
+                              );
+                            }
                           },
                           child: const Text(
                             "Continuar",
@@ -94,19 +97,25 @@ class _HomePageState extends State<HomePage> {
   }
 
   _inputComponentUser() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        TextInfoPattern(title: 'Qual seu ', titleExtension: 'nome completo?'),
-        InputTextFormField(
-          inputText: 'Nome completo',
-        ),
-        SizedBox(height: 20),
-        TextInfoPattern(title: 'E seu ', titleExtension: 'e-mail?'),
-        InputTextFormField(
-          inputText: 'seuemail@email.com',
-        )
-      ],
+    return Form(
+      key: key,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const TextInfoPattern(
+              title: 'Qual seu ', titleExtension: 'nome completo?'),
+          InputTextFormField(
+            controller: controller.name,
+            inputText: 'Nome completo',
+          ),
+          const SizedBox(height: 20),
+          const TextInfoPattern(title: 'E seu ', titleExtension: 'e-mail?'),
+          InputTextFormField(
+            controller: controller.email,
+            inputText: 'seuemail@email.com',
+          )
+        ],
+      ),
     );
   }
 

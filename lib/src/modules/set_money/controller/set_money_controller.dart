@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SetMoneyController {
+class SetMoneyController extends ChangeNotifier {
   final TextEditingController inputMoney = TextEditingController();
+  double? selectedTermValue;
+  double? selectedltvValue;
 
   var indicator$ = ValueNotifier(34);
   var indexPage$ = ValueNotifier(0);
@@ -11,10 +13,17 @@ class SetMoneyController {
   int get indexPage => indexPage$.value;
   bool get hasVisible => hasVisible$.value;
 
+  void sendData() {
+    print(selectedTermValue);
+    print(selectedltvValue);
+    print(inputMoney.text);
+  }
+
   void incrementIndexPage() {
     indexPage$.value++;
     _incrementIndicator();
     _hasVisible();
+    notifyListeners();
   }
 
   void decrementIndexPage(context) {
@@ -25,6 +34,7 @@ class SetMoneyController {
     } else {
       Navigator.pop(context);
     }
+    notifyListeners();
   }
 
   void _hasVisible() {
@@ -33,6 +43,7 @@ class SetMoneyController {
     } else {
       hasVisible$.value = false;
     }
+    notifyListeners();
   }
 
   void _incrementIndicator() => indicator$.value = indicator$.value + 33;
