@@ -24,13 +24,13 @@ class SendDataUser {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fullname'] = this.fullname;
-    data['email'] = this.email;
-    data['ltv'] = this.ltv;
-    data['amount'] = this.amount;
-    data['term'] = this.term;
-    data['has_protected_collateral'] = this.hasProtectedCollateral;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['fullname'] = fullname;
+    data['email'] = email;
+    data['ltv'] = ltv;
+    data['amount'] = amount;
+    data['term'] = term;
+    data['has_protected_collateral'] = hasProtectedCollateral;
     return data;
   }
 }
