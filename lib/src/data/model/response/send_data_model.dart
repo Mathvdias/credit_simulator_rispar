@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class DataModel {
   String? id;
   String? fullname;
@@ -60,6 +62,12 @@ class DataModel {
     interestRate = json['interest_rate'];
     monthlyRate = json['monthly_rate'];
     annualRate = json['annual_rate'];
+  }
+    String dataFormat(String value) {
+    DateFormat dateFormat = DateFormat("dd/MM/yyyy");
+    final date = DateTime.parse(value);
+    final data = dateFormat.format(date);
+    return data;
   }
 
   Map<String, dynamic> toJson() {
