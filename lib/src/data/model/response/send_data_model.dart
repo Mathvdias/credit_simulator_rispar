@@ -4,14 +4,14 @@ class DataModel {
   String? email;
   int? ltv;
   double? contractValue;
-  int? netValue;
+  double? netValue;
   double? installmentValue;
   double? lastInstallmentValue;
   double? iofFee;
   double? originationFee;
   int? term;
   int? collateral;
-  int? collateralInBrl;
+  double? collateralInBrl;
   double? collateralUnitPrice;
   String? firstDueDate;
   String? lastDueDate;

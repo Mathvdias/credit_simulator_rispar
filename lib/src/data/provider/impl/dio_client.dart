@@ -6,17 +6,14 @@ import '../http_client_interface.dart';
 class DioClient implements IRestClient {
   final options = BaseOptions(
       connectTimeout: 5000,
-      receiveTimeout: 3000,
-      responseType: ResponseType.plain);
+      receiveTimeout: 3000,);
   late Dio dio;
 
   DioClient.withAuthBasic() {
     dio = Dio(options);
-    // dio.options.contentType = Headers.formUrlEncodedContentType;
     dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) {
-          //       options.headers['Authorization'] = 'Basic ${_getTokenGenerated()}';
           return handler.next(options);
         },
       ),
