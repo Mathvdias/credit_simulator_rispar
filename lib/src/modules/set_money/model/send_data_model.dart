@@ -1,18 +1,18 @@
 class SendDataUser {
   String? fullname;
   String? email;
-  int? ltv;
-  int? amount;
-  int? term;
+  double? ltv;
+  double? amount;
+  double? term;
   bool? hasProtectedCollateral;
 
   SendDataUser(
-      {this.fullname,
-      this.email,
-      this.ltv,
-      this.amount,
-      this.term,
-      this.hasProtectedCollateral});
+      {required this.fullname,
+      required this.email,
+      required this.ltv,
+      required this.amount,
+      required this.term,
+      required this.hasProtectedCollateral});
 
   SendDataUser.fromJson(Map<String, dynamic> json) {
     fullname = json['fullname'];
