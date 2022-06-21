@@ -1,6 +1,8 @@
+import 'package:credit_simulator/src/data/model/response/exception_responde.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../data/model/response/send_data_model.dart';
 import '../../../data/repository/impl/send_data_respository.dart';
 import '../../home/controller/home_controller.dart';
 import '../model/send_data_model.dart';
@@ -11,18 +13,21 @@ class SetMoneyController extends ChangeNotifier {
 
   final TextEditingController inputMoney = TextEditingController();
   final controllerHome = HomeController();
+  var result = DataModel();
   double? selectedTermValue;
   double? selectedltvValue;
 
   var indicator$ = ValueNotifier(34);
   var indexPage$ = ValueNotifier(0);
   var hasVisible$ = ValueNotifier(false);
+  final state = ValueNotifier<SearchState>(SearchState.start);
 
   int get indicator => indicator$.value;
   int get indexPage => indexPage$.value;
   bool get hasVisible => hasVisible$.value;
 
   Future<void> sendData(bool hasProtected) async {
+    state.value = SearchState.loading;
     final prefs = await SharedPreferences.getInstance();
     final String? _name = prefs.getString('name');
     final String? _email = prefs.getString('email');
@@ -42,8 +47,15 @@ class SetMoneyController extends ChangeNotifier {
       term: _term,
       hasProtectedCollateral: hasProtected,
     );
-    print(data.toJson());
-    _iDataUserRepository.sendData(data);
+    try {
+      result = await _iDataUserRepository.sendData(data);
+      state.value = SearchState.success;
+    } on ExceptionResponse catch (e) {
+      state.value = SearchState.error;
+      print(e);
+    }
+    ;
+    notifyListeners();
   }
 
   void resetPage() {
@@ -81,3 +93,5 @@ class SetMoneyController extends ChangeNotifier {
   void _incrementIndicator() => indicator$.value = indicator$.value + 33;
   void _decrementIndicator() => indicator$.value = indicator$.value - 33;
 }
+
+enum SearchState { start, loading, success, error }
