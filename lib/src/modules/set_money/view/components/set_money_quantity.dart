@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../../../../app/input_number_set_pattern.dart';
 import '../../../../app/text_info_pattern.dart';
@@ -19,6 +18,7 @@ class SetMoneyQuantity extends StatefulWidget {
 }
 
 class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,9 +36,12 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
         const Spacer(
           flex: 1,
         ),
-        InputNumberFormField(
-          controller: widget.text,
-          inputText: '',
+        Form(
+          key: _key,
+          child: InputNumberFormField(
+            controller: widget.text,
+            inputText: '',
+          ),
         ),
         const Spacer(
           flex: 2,
@@ -51,8 +54,10 @@ class _SetMoneyQuantityState extends State<SetMoneyQuantity> {
               height: 45,
               child: ElevatedButton(
                   onPressed: () {
-                    widget.onNext();
-                    FocusManager.instance.primaryFocus?.unfocus();
+                    if (_key.currentState!.validate()) {
+                      widget.onNext();
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    }
                   },
                   child: const Text(
                     "Continuar",

@@ -18,11 +18,29 @@ class InputNumberFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kPadding),
       child: TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'campo é requerido';
+          }
+          var value$ = value
+              .replaceAll('R', '')
+              .replaceAll('\$', '')
+              .replaceAll('.', '')
+              .replaceAll(',', '.');
+          var _value = double.parse(value$);
+
+          if (_value.toDouble() < 500.00 || _value.toDouble() > 300000.00) {
+            return 'Valor inválido';
+          }
+
+          return null;
+        },
         style: const TextStyle(
             fontSize: 30,
             color: Color(0xff559597),
             fontWeight: FontWeight.bold),
         inputFormatters: [
+          LengthLimitingTextInputFormatter(13),
           FilteringTextInputFormatter.digitsOnly,
           CurrencyInputFormatter()
         ],
@@ -38,6 +56,8 @@ class InputNumberFormField extends StatelessWidget {
       ),
     );
   }
+
+  void validate() {}
 }
 
 class CurrencyInputFormatter extends TextInputFormatter {
