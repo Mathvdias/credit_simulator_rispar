@@ -17,7 +17,7 @@ class SetMoneyController extends ChangeNotifier {
   int get indexPage => indexPage$.value;
   bool get hasVisible => hasVisible$.value;
 
-  void sendData() async {
+  void sendData(bool hasProtected) async {
     final prefs = await SharedPreferences.getInstance();
     final String? name = prefs.getString('name');
     var email = prefs.getString('email');
@@ -25,7 +25,12 @@ class SetMoneyController extends ChangeNotifier {
     print(email);
     print(selectedTermValue == null ? 3 : 3);
     print(selectedltvValue == null ? 20.0 : 20.0);
-    print(inputMoney.text);
+    print(inputMoney.text
+        .replaceAll('R', '')
+        .replaceAll('\$', '')
+        .replaceAll('.', '')
+        .replaceAll(',', '.'));
+    print(hasProtected);
   }
 
   void incrementIndexPage() {

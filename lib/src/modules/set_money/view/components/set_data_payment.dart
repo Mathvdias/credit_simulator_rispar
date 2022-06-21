@@ -116,13 +116,14 @@ class _SetDataPaymentState extends State<SetDataPayment> {
   }
 
   _buttonNextWithoutWarranty() {
+    final controller = context.watch<SetMoneyController>();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kPadding),
       child: SizedBox(
         width: double.maxFinite,
         height: 45,
         child: TextButton(
-            onPressed: () {},
+            onPressed: () => controller.sendData(false),
             child: const Text('Continuar sem garantia',
                 style: TextStyle(fontWeight: FontWeight.bold))),
       ),
@@ -137,7 +138,7 @@ class _SetDataPaymentState extends State<SetDataPayment> {
           width: double.maxFinite,
           height: 45,
           child: ElevatedButton(
-              onPressed: () => controller.sendData(),
+              onPressed: () => controller.sendData(true),
               child: const Text(
                 "Continuar",
                 style: TextStyle(fontWeight: FontWeight.bold),
