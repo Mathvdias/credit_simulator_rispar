@@ -1,6 +1,8 @@
 # credit_simulator
 
-A new Flutter project.
+A Rispar é a primeira plataforma de crédito com garantia em bitcoins do Brasil.
+Através da plataforma, o usuário tem acesso a linhas de crédito vantajosas, com juros
+baixos e crédito rápido, possibilitados pelo Bitcoin como ativo em garantia.
 
 ## Getting Started
 
