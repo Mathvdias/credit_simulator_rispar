@@ -18,6 +18,10 @@ class InputNumberFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: kPadding),
       child: TextFormField(
+        style: const TextStyle(
+            fontSize: 30,
+            color: Color(0xff559597),
+            fontWeight: FontWeight.bold),
         inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
           CurrencyInputFormatter()
@@ -25,9 +29,12 @@ class InputNumberFormField extends StatelessWidget {
         keyboardType: TextInputType.number,
         controller: controller,
         decoration: InputDecoration(
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(width: 3, color: Color(0xffcee9e7)),
+          ),
           labelText: inputText,
         ),
-        onSaved: (String? value) {},
+        onChanged: (String? value) {},
       ),
     );
   }
@@ -51,5 +58,4 @@ class CurrencyInputFormatter extends TextInputFormatter {
         text: newText,
         selection: TextSelection.collapsed(offset: newText.length));
   }
-  
 }
