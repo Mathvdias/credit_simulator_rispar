@@ -28,3 +28,8 @@ baixos e crédito rápido, possibilitados pelo Bitcoin como ativo em garantia.
 <img align="center" src="https://user-images.githubusercontent.com/74201503/174900164-6924fa61-e101-49cc-a1da-0a4662f5a251.png" width="200" height="400"/>
 <img align="center" src="https://user-images.githubusercontent.com/74201503/174900254-2853cace-f8c9-45c2-8440-60512c59a76c.png" width="200" height="400"/>
 </div>
+<h2 align="center">O app foi feito utilizando: 📖</h2>
+<p>
+<h2>
+
+`SharedPreferences`, `Provider`, `Intl`, `DIO`, `Flutter_SVG`.
