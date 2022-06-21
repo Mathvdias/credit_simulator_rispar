@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
-import '../components/app_rispar.dart';
+import 'app_rispar.dart';
 
 class InputNumberFormField extends StatelessWidget {
   final String inputText;

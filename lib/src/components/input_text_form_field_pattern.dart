@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_rispar.dart';
+import 'app_rispar.dart';
 
 class InputTextFormField extends StatelessWidget {
   final TextEditingController controller;

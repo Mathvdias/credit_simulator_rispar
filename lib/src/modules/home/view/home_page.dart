@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../app/images.dart';
-import '../../../app/input_text_form_field_pattern.dart';
-import '../../../app/text_info_pattern.dart';
+import '../../../components/input_text_form_field_pattern.dart';
+import '../../../components/text_info_pattern.dart';
 import '../../../components/app_rispar.dart';
 import '../../set_money/view/set_money_view.dart';
 import '../controller/home_controller.dart';

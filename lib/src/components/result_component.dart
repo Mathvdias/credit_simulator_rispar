@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_rispar.dart';
+import 'app_rispar.dart';
 
 class ComponentResult extends StatelessWidget {
   final String text;

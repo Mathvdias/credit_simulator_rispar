@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../app/result_component.dart';
+import '../../../../components/result_component.dart';
 import '../../../../components/app_rispar.dart';
 import '../../controller/set_money_controller.dart';
 
@@ -30,7 +30,7 @@ class _SuccesComponentState extends State<SuccesComponent> {
             children: const [
               Text('Resultado da simulação',
                   style: TextStyle(
-                      fontSize: 27,
+                      fontSize: 25,
                       color: Colors.black,
                       fontWeight: FontWeight.bold)),
             ],
