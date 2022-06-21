@@ -50,7 +50,7 @@ class _ResultDataSolicitationState extends State<ResultDataSolicitation> {
     }
   }
 
-  _success() {
+  _loading() {
     final controller = context.watch<SetMoneyController>();
     return Column(
       children: [
@@ -114,12 +114,41 @@ class _ResultDataSolicitationState extends State<ResultDataSolicitation> {
     );
   }
 
-  _loading() {
-    return Container(
-        color: Colors.amber,
-        child: const CupertinoActivityIndicator(
-          color: Color(0xff559597),
-        ));
+  _success() {
+    return SizedBox(
+      height: 160,
+      width: MediaQuery.of(context).size.width,
+      child: Column(
+        children: [
+          Transform.scale(
+            scale: 1.5,
+            child: const CupertinoActivityIndicator(
+              color: Color(0xff559597),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Column(
+            children: const [
+              Text('Aguarde um momento',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold)),
+              Text('Estamos simulando seu pedido de',
+                  style: TextStyle(
+                    color: Colors.black,
+                  )),
+              Text(' crédito Rispar...',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ))
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   _start() {
