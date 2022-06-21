@@ -14,7 +14,6 @@ class DataUserRepository implements IDataUserRepository {
     try {
       final response = await restClient.post(
           'https://api.rispar.com.br/acquisition/simulation', data.toJson());
-      print(DataModel.fromJson(response).toJson());
       return DataModel.fromJson(response);
     } on ExceptionResponse catch (e) {
       throw ExceptionResponse(statusCode: e.statusCode, message: e.message);

@@ -20,14 +20,14 @@ class SetMoneyController extends ChangeNotifier {
   var indicator$ = ValueNotifier(34);
   var indexPage$ = ValueNotifier(0);
   var hasVisible$ = ValueNotifier(false);
-  final state = ValueNotifier<SearchState>(SearchState.start);
+  final state = ValueNotifier<ResultState>(ResultState.start);
 
   int get indicator => indicator$.value;
   int get indexPage => indexPage$.value;
   bool get hasVisible => hasVisible$.value;
 
   Future<void> sendData(bool hasProtected) async {
-    state.value = SearchState.loading;
+    state.value = ResultState.loading;
     final prefs = await SharedPreferences.getInstance();
     final String? _name = prefs.getString('name');
     final String? _email = prefs.getString('email');
@@ -49,9 +49,9 @@ class SetMoneyController extends ChangeNotifier {
     );
     try {
       result = await _iDataUserRepository.sendData(data);
-      state.value = SearchState.success;
+      state.value = ResultState.success;
     } on ExceptionResponse catch (e) {
-      state.value = SearchState.error;
+      state.value = ResultState.error;
       print(e);
     }
     ;
@@ -94,4 +94,4 @@ class SetMoneyController extends ChangeNotifier {
   void _decrementIndicator() => indicator$.value = indicator$.value - 33;
 }
 
-enum SearchState { start, loading, success, error }
+enum ResultState { start, loading, success, error }
