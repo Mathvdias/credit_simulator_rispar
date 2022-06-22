@@ -3,6 +3,10 @@
 A Rispar é a primeira plataforma de crédito com garantia em bitcoins do Brasil.
 Através da plataforma, o usuário tem acesso a linhas de crédito vantajosas, com juros
 baixos e crédito rápido, possibilitados pelo Bitcoin como ativo em garantia.
+<br>
+
+---
+Link vercel app: https://credit-simulator-rispar.vercel.app/#/
 
 URL: https://api.rispar.com.br/acquisition/simulation<br>
 Method: POST
