@@ -49,7 +49,8 @@ class _SuccesComponentState extends State<SuccesComponent> {
                 .replaceAll('.', ',')),
         ComponentResult(
             text: 'Taxa de juros',
-            result: '${controller.result.interestRate}% a.m'),
+            result:
+                '${controller.result.interestRate!.toStringAsFixed(2).replaceAll('.', ',')}% a.m'),
         ComponentResult(
             text: 'Percentual de garantia',
             result: '${controller.result.ltv}%'),

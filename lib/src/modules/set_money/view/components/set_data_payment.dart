@@ -123,7 +123,9 @@ class _SetDataPaymentState extends State<SetDataPayment> {
         width: double.maxFinite,
         height: 45,
         child: TextButton(
-            onPressed: () => controller.sendData(false),
+            onPressed: () {
+              controller.sendData(false);
+            },
             child: const Text('Continuar sem garantia',
                 style: TextStyle(fontWeight: FontWeight.bold))),
       ),
