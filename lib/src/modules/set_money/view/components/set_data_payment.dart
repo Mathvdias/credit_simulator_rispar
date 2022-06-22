@@ -125,6 +125,7 @@ class _SetDataPaymentState extends State<SetDataPayment> {
         child: TextButton(
             onPressed: () {
               controller.sendData(false);
+              widget.onNext();
             },
             child: const Text('Continuar sem garantia',
                 style: TextStyle(fontWeight: FontWeight.bold))),
