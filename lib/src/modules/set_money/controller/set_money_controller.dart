@@ -31,8 +31,8 @@ class SetMoneyController extends ChangeNotifier {
     final prefs = await SharedPreferences.getInstance();
     final String? _name = prefs.getString('name');
     final String? _email = prefs.getString('email');
-    final double? _term = selectedTermValue == null ? 3 : 3;
-    final _ltv = selectedltvValue == null ? 20.0 : 20.0;
+    final double? _term = selectedTermValue ?? 3;
+    final _ltv = selectedltvValue ?? 20.0;
     final _amount = inputMoney.text
         .replaceAll('R', '')
         .replaceAll('\$', '')
@@ -47,6 +47,7 @@ class SetMoneyController extends ChangeNotifier {
       term: _term,
       hasProtectedCollateral: hasProtected,
     );
+    print(data.toJson());
     try {
       result = await _iDataUserRepository.sendData(data);
       state.value = ResultState.success;

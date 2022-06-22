@@ -56,7 +56,7 @@ class _SuccesComponentState extends State<SuccesComponent> {
             result: '${controller.result.ltv}%'),
         ComponentResult(
             text: 'Primeiro vencimento',
-            result: dataFormat(controller.result.firstDueDate.toString())),
+            result: dataFormat(controller.result.lastDueDate.toString())),
         ComponentResult(
             text: 'IOF',
             result:
