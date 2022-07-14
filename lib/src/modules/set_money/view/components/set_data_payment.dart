@@ -23,11 +23,15 @@ class SetDataPayment extends StatefulWidget {
 class _SetDataPaymentState extends State<SetDataPayment> {
   @override
   Widget build(BuildContext context) {
+    final controller = context.watch<SetMoneyController>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const TextInfoPattern(fontSize: 25, titleExtension: 'Valor escolhido'),
-        _textColorGreen(widget.text.text),
+        const SizedBox(
+          height: 15,
+        ),
+        _textColorGreen(controller.inputMoney.text),
         const Spacer(
           flex: 1,
         ),
